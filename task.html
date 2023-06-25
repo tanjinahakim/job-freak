@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Navbar Demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* CSS styles for the navbar */
+    body {
+      padding: 50px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-color: #f8f8f8;
+      animation: colorChange 10s infinite alternate;
+    }
+    
+    @keyframes colorChange {
+      0% {
+        background-color: #f8f8f8;
+      }
+      50% {
+        background-color: #ecf3ff;
+      }
+      100% {
+        background-color: #f8f8f8;
+      }
+    }
+    
+    #navbar {
+      width: 200px;
+      height: 65vh;
+      background: #333;
+      float: left;
+      color: #fff;
+    }
+    
+    #navbar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      font-size: large;
+    }
+    
+    #navbar li {
+      padding: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    #navbar li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background-color: #fff;
+    }
+    
+    #content {
+      margin-left: 220px;
+      text-align: center;
+      padding: 50px;
+    }
+    
+    /* CSS styles for the content area */
+    #content h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    #content p {
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .list{
+      list-style: none;
+      text-align: justify;
+      margin-left: 250px;
+    }
+    /* css styles for icons */
+    .icon{
+      margin: 0 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar">
+    <ul>
+      <li onclick="showContent('home')"><i class="fas fa-home icon"></i>Home</li>
+      <li onclick="showContent('contact')"><i class="fas fa-envelope icon"></i>Contact</li>
+      <li onclick="showContent('information')"><i class="fas fa-info-circle icon"></i>Information</li>
+      <li onclick="showContent('guide')"><i class="fas fa-book icon"></i>Guide</li>
+    </ul>
+  </div>
+  
+  <!-- Content area -->
+  <div id="content">
+    <h2>Welcome to the Home Page</h2>
+    <p>This is the home page content. You can use this page to showcase your website or application's main features and provide an overview of what users can expect. Make sure to highlight any unique selling points or benefits to engage your visitors.</p>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+    function showContent(page) {
+      var contentDiv = document.getElementById('content');
+      
+      if (page === 'home') {
+        contentDiv.innerHTML = `
+          <h2>Welcome to the Home Page</h2>
+          <p>This is the home page content. You can use this page to showcase your website or application's main features and provide an overview of what users can expect. Make sure to highlight any unique selling points or benefits to engage your visitors.</p>
+        `;
+      } else if (page === 'contact') {
+        contentDiv.innerHTML = `
+          <h2>Contact Us</h2>
+          <p>Get in touch with us using the contact details below:</p>
+          <ul class='list'>
+            <li><i class="fas fa-envelope"></i>Email:example@example.com</li>
+            <li><i class="fas fa-phone"></i>Phone:+123456789</li>
+            <li><i class="fas fa-map-marker-alt"></i>Address:123 Street, City, Country</li>
+          </ul>
+        `;
+      } else if (page === 'information') {
+        contentDiv.innerHTML = `
+          <h2>Information</h2>
+          <p>This page provides important information about your product, service, or company. You can include details such as pricing plans, FAQs, terms of service, privacy policy, and other relevant information that your users might need.</p>
+        `;
+      } else if (page === 'guide') {
+        contentDiv.innerHTML = `
+          <h2>Guide</h2>
+          <p>This is the guide page content. You can use this page to provide step-by-step instructions, tutorials, or helpful guides to your users. Make sure to present the information in a clear and organized manner, using headings, bullet points, and other formatting techniques.</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
